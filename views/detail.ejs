@@ -1,0 +1,16 @@
+<div ng-controller="PostCtrl">
+  <a href="#/">Home</a>
+  <h1>
+    {{post.title}}
+  </h1>
+  <div ng-repeat="item in post.comments track by $index" class="alert alert-success">
+    {{item}}
+    <i class="fa fa-times" ng-click="removeComment($index)"></i>
+  </div>
+  <div class="group-control">
+  <label>Comment</label>
+    <textarea class="form-control" rows="3" ng-model="comment">
+    </textarea>
+  </div>
+  <button class="btn btn-primary" ng-click="addComment()">Add</button>
+</div>

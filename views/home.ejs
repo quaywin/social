@@ -1,0 +1,72 @@
+<!-- <div ng-controller="MainCtrl">
+<div class="rows">
+  <div class="col-md-6">
+    <h2 >{{test}}</h2>
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control col-md-6" ng-model="title" placeholder="title" ng-enter="addNote()"></div>
+    <button type="button" class="btn btn-success" ng-click="addNote()">Add Note</button>
+  </div>
+  <div class="col-md-6">
+    <h2>List Note</h2>
+    <div ng-repeat="post in posts"> <i ng-click="vote(post)" class="fa fa-thumbs-o-up pointer"></i>
+      <a href="#/detail/{{post._id}}">{{post.title}}</a>
+      - upvotes: {{post.upvotes}} <i class="fa fa-times pointer" ng-click="removePost(post,$index)"></i>
+    </div>
+  </div>
+</div>
+</div>
+-->
+<div ng-controller="MainCtrl">
+<div class="timeline-block" style="margin-bottom: 15px; zoom: 1; opacity: 1;">
+  <div class="panel panel-default share">
+    <div class="panel-heading panel-heading-gray title">What´s new</div>
+    <div class="panel-body">
+      <input type="text" name="status" class="form-control share-text" rows="3" placeholder="Share your status..."ng-model="title" ng-enter="addNote()">
+    </div>
+
+  </div>
+</div>
+<div class="timeline-block" style="margin-bottom: 15px; zoom: 1; opacity: 1;" ng-repeat="post in posts">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="media">
+        <a href="" class="pull-left">
+          <img src="/theme/images/people/50/guy-2.jpg" class="media-object" style="width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;"></a>
+        <div class="media-body">
+          <a href="#" class="pull-right text-muted">
+            <i class="icon-reply-all-fill fa fa-2x "></i>
+          </a>
+          <a href="">Jonathan</a>
+          <span>on 15th January, 2014</span>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <p>{{post.title}}</p>
+    </div>
+    <ul class="comments">
+      <li ng-repeat="item in post.comments track by $index">
+        <div class="media">
+          <a href="" class="pull-left">
+            <img src="/theme/images/people/50/woman-5.jpg" class="media-object" style="width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto;"></a>
+          <div class="media-body">
+            <a href="" class="comment-author">Mary</a>
+            <span>{{item}}</span>
+          </div>
+        </div>
+      </li>
+      <li class="comment-form">
+        <div class="input-group">
+          <input type="text" ng-model="post.comment" class="form-control" ng-enter="addComment(post)">
+          <span class="input-group-addon">
+            <a href="" ng-click="addComment(post)">
+              <i class="fa fa-send"></i>
+            </a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
